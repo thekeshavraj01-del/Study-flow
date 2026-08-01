@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<header>
+    <h1>📚 StudyFlow</h1>
+    <p>Track your study every day</p>
+</header>
+
+<main>
+
+    <div class="card">
+        <h2>Study Timer</h2>
+        <h1 id="timer">00:00:00</h1>
+
+        <button id="startBtn">Start</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="resetBtn">Reset</button>
+    </div>
+
+    <div class="card">
+        <h2>Today's Goal</h2>
+
+        <progress id="progress" value="0" max="8"></progress>
+
+        <p><span id="hours">0</span> / 8 Hours</p>
+    </div>
+
+    <div class="card">
+        <h2>Tasks</h2>
+
+        <input
+            type="text"
+            id="taskInput"
+            placeholder="Enter a task">
+
+        <button id="addTask">Add Task</button>
+
+        <ul id="taskList"></ul>
+    </div>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
