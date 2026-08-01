@@ -2,6 +2,8 @@ let seconds = 0;
 let timer = null;
 
 const timerDisplay = document.getElementById("timer");
+const progress = document.getElementById("progress");
+const hours = document.getElementById("hours");
 
 function updateTimer() {
     let hrs = Math.floor(seconds / 3600);
@@ -12,25 +14,43 @@ function updateTimer() {
         String(hrs).padStart(2, "0") + ":" +
         String(mins).padStart(2, "0") + ":" +
         String(secs).padStart(2, "0");
+
+    let studiedHours = seconds / 3600;
+    progress.value = Math.min(studiedHours, 8);
+    hours.textContent = studiedHours.toFixed(2);
 }
 
-document.getElementById("startBtn").addEventListener("click", () => {
+document.getElementById("startBtn").onclick = () => {
     if (timer) return;
 
     timer = setInterval(() => {
         seconds++;
         updateTimer();
     }, 1000);
-});
+};
 
-document.getElementById("pauseBtn").addEventListener("click", () => {
+document.getElementById("pauseBtn").onclick = () => {
     clearInterval(timer);
     timer = null;
-});
+};
 
-document.getElementById("resetBtn").addEventListener("click", () => {
+document.getElementById("resetBtn").onclick = () => {
     clearInterval(timer);
     timer = null;
     seconds = 0;
     updateTimer();
-});
+};
+
+const taskInput = document.getElementById("taskInput");
+const taskList = document.getElementById("taskList");
+
+document.getElementById("addTask").onclick = () => {
+    if (taskInput.value.trim() === "") return;
+
+    const li = document.createElement("li");
+    li.textContent = taskInput.value;
+
+    taskList.appendChild(li);
+
+    taskInput.value = "";
+};
