@@ -90,3 +90,24 @@ li{
     border-radius:8px;
     margin-bottom:10px;
 }
+.subjects{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:15px;
+}
+
+.subject{
+    background:#242424;
+    border:2px solid #4f46e5;
+    color:white;
+    padding:16px;
+    border-radius:12px;
+    font-size:18px;
+    transition:.3s;
+}
+
+.subject:hover{
+    transform:scale(1.03);
+    background:#4f46e5;
+}
