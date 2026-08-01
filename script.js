@@ -44,13 +44,38 @@ document.getElementById("resetBtn").onclick = () => {
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function renderTasks() {
+    taskList.innerHTML = "";
+
+    tasks.forEach((task, index) => {
+        const li = document.createElement("li");
+        li.textContent = task;
+
+        li.onclick = () => {
+            tasks.splice(index, 1);
+            saveTasks();
+            renderTasks();
+        };
+
+        taskList.appendChild(li);
+    });
+}
+
 document.getElementById("addTask").onclick = () => {
     if (taskInput.value.trim() === "") return;
 
-    const li = document.createElement("li");
-    li.textContent = taskInput.value;
+    tasks.push(taskInput.value);
 
-    taskList.appendChild(li);
+    saveTasks();
+    renderTasks();
 
     taskInput.value = "";
 };
+
+renderTasks();
