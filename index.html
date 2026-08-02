@@ -52,7 +52,15 @@
 <main>
 
     <div class="card">
-        <h2>⏱ Focus Timer</h2>  
+        <h2>⏱ Focus Timer</h2> 
+    <label>📚 Study Time (minutes)</label><br>
+<input type="number" id="studyMinutes" value="50" min="1" max="300"><br><br>
+
+<label>☕ Break Time (minutes)</label><br>
+<input type="number" id="breakMinutes" value="10" min="1" max="60"><br><br>
+
+<label>🔁 Sessions</label><br>
+<input type="number" id="sessions" value="4" min="1" max="10"><br><br>
         <h1 id="timer">00:00:00</h1>
 
 <button id="startBtn">▶ Start</button>
