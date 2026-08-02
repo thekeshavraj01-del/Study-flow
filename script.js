@@ -104,5 +104,4 @@ const options = {
 
 if (todayDate) {
   todayDate.textContent =
-    "📅 " + today.toLocaleDateString("en-IN", options);
-}
+    "📅 " + today.toLocaleDateString("en-IN", options)
