@@ -85,8 +85,11 @@ const options = {
   weekday: "long",
   year: "numeric",
   month: "long",
-  day: "numeric"
-};
+  day: "
 
-document.getElementById("todayDate").textContent =
-  "📅 " + today.toLocaleDateString("en-IN", options);
+ const todayDate = document.getElementById("todayDate");
+
+if (todayDate) {
+  todayDate.textContent =
+    "📅 " + today.toLocaleDateString("en-IN", options);
+}
