@@ -79,3 +79,14 @@ document.getElementById("addTask").onclick = () => {
 };
 
 renderTasks();
+const today = new Date();
+
+const options = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+};
+
+document.getElementById("todayDate").textContent =
+  "📅 " + today.toLocaleDateString("en-IN", options);
