@@ -17,11 +17,29 @@ function updateTimer() {
 
     let studiedHours = seconds / 3600;
     progress.value = Math.min(studiedHours, 8);
-    hours.textContent = studiedHours.toFixed(2);
-}
+    hours.textContent = studiedHours.toFixed(
 
-document.getElementById("startBtn").onclick = () => {
+        document.getElementById("startBtn").onclick = () => {
+
     if (timer) return;
+
+    if (seconds === 0) {
+        const studyMinutes = parseInt(document.getElementById("studyMinutes").value);
+        seconds = studyMinutes * 60;
+        updateTimer();
+    }
+
+    timer = setInterval(() => {
+        seconds--;
+        updateTimer();
+
+        if (seconds <= 0) {
+            clearInterval(timer);
+            timer = null;
+            alert("🎉 Study session completed!");
+        }
+    }, 1000);
+};
 
     timer = setInterval(() => {
         seconds++;
