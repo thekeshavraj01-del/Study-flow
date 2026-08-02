@@ -85,7 +85,8 @@ const options = {
   weekday: "long",
   year: "numeric",
   month: "long",
-  day: "
+  day: "numeric"
+};
 
  const todayDate = document.getElementById("todayDate");
 
