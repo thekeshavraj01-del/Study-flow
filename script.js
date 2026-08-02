@@ -41,12 +41,6 @@ function updateTimer() {
     }, 1000);
 };
 
-    timer = setInterval(() => {
-        seconds++;
-        updateTimer();
-    }, 1000);
-};
-
 document.getElementById("pauseBtn").onclick = () => {
     clearInterval(timer);
     timer = null;
